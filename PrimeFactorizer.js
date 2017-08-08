@@ -9,6 +9,7 @@ function isPrime (n) {
 
 function PrimeFactorizer(n) {  
   let hash = [];
+  let initialValue = n;
   if (n == 1) {
     hash.push(1);
   }  
@@ -20,8 +21,10 @@ function PrimeFactorizer(n) {
       }  
     }  
   }  
-  hash = hash.sort((a, b) => a - b); 
-  return hash;
+  hash.sort((a, b) => a - b);
+  hash = hash.join(` * `);
+  hash = `${initialValue} = `.concat(hash);
+  return hash; 
 }  
 
 console.log(PrimeFactorizer(1));
@@ -29,3 +32,4 @@ console.log(PrimeFactorizer(4));
 console.log(PrimeFactorizer(23));
 console.log(PrimeFactorizer(60));
 console.log(PrimeFactorizer(90));
+console.log(PrimeFactorizer(131));
